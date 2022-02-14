@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js_scripts/new.js" defer></script>
+    <title>MG - Área da Empresa</title>
+</head>
+<body>
+    <h2>Cadastro de Produtos no Banco de Dados</h2>
+
+    <form action="../home.html">
+        <input type="submit" value="Voltar">
+    </form>
+
+    <form id="form_new_product">
+        <label>Código UPC/EAN</label></br>
+        <input type="number" id="upc_ean" placeholder="Código de Barra" required></br></br>
+        <label>Nome do Jogo</label></br>
+        <input type="text" id="name" placeholder="Insira o nome" required></br></br>
+        <label>Região</label></br>
+        <input type="text" id="region" placeholder="Insira a região"></br></br>
+        <label>Console</label></br>
+        <input type="text" id="console" placeholder="Insira o console" required></br></br>
+        <label>Ano de Lançamento</label></br>
+        <input type="number" id="year" placeholder="Ano" required></br></br>
+        <label>Preço do Jogo</label></br>
+        <input type="number" id="price" placeholder="Preço" required></br></br>
+        <label>Breve descrição do Jogo</label></br>
+        <textarea id="description" rows="10" cols="40" placeholder="Insira uma descrição"></textarea></br>
+        
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

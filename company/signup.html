@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js_scripts/signup.js" defer></script>
+    <title>MG - Área da Empresa</title>
+</head>
+<body>
+    <h2>Cadastro de Empresa</h2>
+
+    <form action="../public/index.html">
+        <input type="submit" value="Voltar ao início">
+    </form>
+
+    <form id="form_signup_company">
+        <label>CNPJ da Empresa</label></br>
+        <input type="number" id="cnpj" placeholder="12345678000109" required></br></br>
+        <label>Nome da Empresa</label></br>
+        <input type="text" id="name" placeholder="Insira o nome da sua empresa" required></br></br>
+        <label>Email</label></br>
+        <input type="email" id="email" placeholder="email@email.com" required></br></br>
+        <label>Senha</label></br>
+        <input type="password" id="password" placeholder="Insira sua senha..." required></br></br>
+        <label>Breve descrição da Empresa</label></br>
+        <textarea id="description" rows="10" cols="40" placeholder="Insira uma descrição para sua empresa"></textarea></br>
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

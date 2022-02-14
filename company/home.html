@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js_scripts/home.js" defer></script>
+    <title>MG - Home</title>
+</head>
+<body>
+    <h1>Home - Perfil</h1><br>
+    <div id="home_company_profile">
+        <h2>Dados da Empresa:</h2>
+    </div>
+    <form action="../company/edit.html">
+        <input type="submit" value="Editar">
+    </form>
+
+    <div id="home_company_orders">
+        <a href="../company/orders.html"><h2>Pedidos recebidos:</h2></a>
+    </div>
+
+    <form action="products/stock.html">
+        <input type="submit" value="Registrar produtos no Estoque">
+    </form>
+    <form action="products/new.html">
+        <input type="submit" value="Registrar produto no Banco de Dados">
+    </form>
+
+
+    <div id="home_company_products">
+        <a href="../company/products.html"><h2>Produtos em catálogo:</h2></a>
+    </div>
+    <button type="button" onclick="logout()">Logout</button>
+</body>
+</html>

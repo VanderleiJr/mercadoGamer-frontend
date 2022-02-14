@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js_scripts/stock.js" defer></script>
+    <title>MG - Área da Empresa</title>
+</head>
+<body>
+    <h2>Atualizar Estoque de Produtos da Empresa</h2>
+
+    <form action="../home.html">
+        <input type="submit" value="Voltar">
+    </form>
+
+    <form id="form_new_stock">
+        <label>Código UPC/EAN</label></br>
+        <input type="number" id="upc_ean" placeholder="Código de Barra" required></br></br>
+        <label>Adicionar quantos ao estoque?</label></br>
+        <input type="number" id="amount" placeholder="0" required></br></br>
+        
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

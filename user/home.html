@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js_scripts/home.js" defer></script>
+    <title>MG - Home</title>
+</head>
+<body>
+    <h1>Home - Perfil</h1><br>
+
+    <form action="../market/market.html">
+        <input type="submit" value="MarketPlace">
+    </form>
+
+    <div id="home_user_profile">
+        <h2>Seus Dados:</h2>
+    </div>
+    <form action="../user/edit.html">
+        <input type="submit" value="Editar">
+    </form>
+
+    <div id="home_user_orders">
+        <a href="../user/orders.html"><h2>Seus Pedidos:</h2></a>
+    </div>
+
+    <button type="button" onclick="logout()">Logout</button>
+
+
+</body>
+</html>

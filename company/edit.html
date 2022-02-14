@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js_scripts/edit.js" defer></script>
+    <title>MG - Home</title>
+</head>
+<body>
+    <h1>Home - Perfil</h1><br>
+
+    <form action="../company/home.html">
+        <input type="submit" value="Voltar">
+    </form>
+
+    <form id="form_edit_company">
+        <label>Nome da Empresa</label></br>
+        <input type="text" id="name" placeholder="Insira seu nome" required></br></br>
+        <label>Email</label></br>
+        <input type="email" id="email" placeholder="email@email.com" required></br></br>
+        <label>Breve descrição da Empresa</label></br>
+        <textarea id="description" rows="10" cols="40" placeholder="Insira uma descrição para sua empresa"></textarea></br>
+        
+        <input type="submit" value="Atualizar Dados">
+    </form>
+
+</body>
+</html>
