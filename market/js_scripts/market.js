@@ -1,6 +1,6 @@
 async function market() {
     const home_data = document.getElementById('market')
-    const response = await axios.get('http://127.0.0.1:8000/market')
+    const response = await axios.get('http://127.0.0.1:8000/market/')
 
     if(response.status == 204){
         home_data.appendChild(document.createTextNode("Não há jogos no Marketplace agora... Que triste"))
