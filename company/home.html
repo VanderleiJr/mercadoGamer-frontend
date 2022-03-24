@@ -6,32 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js_scripts/home.js" defer></script>
+    <link rel="stylesheet" href="styles/responsive.css">
     <title>MG - Home</title>
 </head>
 <body>
-    <h1>Home - Perfil</h1><br>
-    <div id="home_company_profile">
-        <h2>Dados da Empresa:</h2>
-    </div>
-    <form action="../company/edit.html">
-        <input type="submit" value="Editar">
-    </form>
-
-    <div id="home_company_orders">
-        <a href="../company/orders.html"><h2>Pedidos recebidos:</h2></a>
+    <div id="full_header" class="container">
+        <header>Home - Perfil</header><br>
+        <button type="button" onclick="logout()" id="botao_logout">🚪</button>
     </div>
 
-    <form action="products/stock.html">
-        <input type="submit" value="Registrar produtos no Estoque">
-    </form>
-    <form action="products/new.html">
-        <input type="submit" value="Registrar produto no Banco de Dados">
-    </form>
+    <div class="container" id="main_container">
+        <div id="dados_empresa">
+            <div id="home_company_profile">
+                <h2>Dados da Empresa:</h2>
+            </div>
+            <div class="container-reverse">
+                <form action="../company/edit.html">
+                    <input type="submit" value="Editar">
+                </form>
+            </div>
+        </div>
+
+        <div id="pedidos">
+            <div id="home_company_orders">
+                <a href="../company/orders.html"><h2>Pedidos recebidos:</h2></a>
+            </div>
+
+        </div>
 
 
-    <div id="home_company_products">
-        <a href="../company/products.html"><h2>Produtos em catálogo:</h2></a>
+        <div id="catalogo">
+            <div id="home_company_products">
+                <a href="../company/products.html"><h2>Produtos em catálogo:</h2></a>
+            </div>
+        </div>
     </div>
-    <button type="button" onclick="logout()">Logout</button>
+    <footer>
+        <div id="funcoes_admin">
+            <h4>Funções Admin</h4>
+        </div>
+        <div id="botoes" class="buttons-container">
+            <form action="products/stock.html">
+                <input type="submit" value="Registrar produto(s) no Estoque">
+            </form>
+            <form action="products/new.html">
+                <input type="submit" value="Cadastrar Tipo de Produto">
+            </form>
+        </div>
+    </footer>
 </body>
 </html>

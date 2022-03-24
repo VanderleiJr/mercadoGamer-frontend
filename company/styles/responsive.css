@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+}
+
+.container {
+    display: inline-flex;
+}
+
+.container-reverse {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.buttons-container {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+}
+
+#main_container{
+    height: 60vh;
+}
+
+#formulario{
+    padding: 1em;
+    background-color: beige;
+}
+
+#pedidos{
+    width: 40%;
+    padding: 1em;
+    background-color: cyan;
+}
+
+#catalogo{
+    width: 40%;
+    padding: 1em;
+    background-color: cyan;
+}
+
+#dados_empresa{
+    width: 20%;
+    padding: 1em;
+    background-color: brown;
+}
+
+#funcoes_admin{
+    padding: 8px;
+}
+
+/*#botao_editar{
+    flex-direction: row-reverse;
+}*/
+
+header{
+    flex: 1;
+    background-color: yellowgreen;
+    heigth: 20vh;
+    padding: 1em;
+}
+
+footer{
+    flex: 1;
+    background-color: yellowgreen;
+}

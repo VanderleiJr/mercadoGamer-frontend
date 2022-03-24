@@ -6,17 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js_scripts/orders.js" defer></script>
+    <link rel="stylesheet" href="styles/responsive.css">
     <title>MG - Pedidos</title>
 </head>
 <body>
-    <h1>Home - Pedidos</h1><br>
+    <!-- CONTAINER 1 - botão de voltar e título -->
+    <div class="container">
+        <div id="formulario">
+        <form action="../user/home.html">
+            <input type="submit" value="←">
+        </form>
+        </div>
 
-    <form action="../user/home.html">
-        <input type="submit" value="Home">
-    </form>
+        <header>Home - Pedidos</header><br>
+    </div>
 
-    <div id="home_user_orders">
-        <h2>Seus Pedidos:</h2>
+    <!-- CONTAINER 2 - Pedidos e produtos cadastrados -->
+    <div class="container">
+        <div id="dados_usuario">
+            Dados usuário<br>
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            <br>
+            BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBbb
+            <br>
+            <div id="botao_editar" class="container-reverse">
+            <form action="../user/home.html">
+                <input type="submit" value="🖉">
+            </form>
+            </div>
+
+        </div>
+
+        <div id="home_user_orders">
+            Seus Pedidos:
+        </div>
+        
     </div>
 </body>
 </html>
