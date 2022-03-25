@@ -13,7 +13,7 @@ function signin_user() {
                 window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
             })
 
-            window.location.href = 'http://127.0.0.1:5500/frontend/user/home.html'
+            window.location.href = '../user/home.html'
 
         } catch(e) {
             error_message = e.message

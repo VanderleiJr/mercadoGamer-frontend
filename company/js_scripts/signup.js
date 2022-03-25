@@ -13,7 +13,7 @@ function signup_company() {
                 password: form_signup_company.password.value
             })
             alert(`Empresa cadastrada com sucesso! Bem-vindos ${form_signup_company.name.value}`)
-            window.location.href = 'http://127.0.0.1:5500/frontend/company/signin.html'
+            window.location.href = '../company/signin.html'
         } catch(e) {
             error_message = e.message
             if(error_message.includes('409')) {

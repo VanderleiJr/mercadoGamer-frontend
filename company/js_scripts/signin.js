@@ -12,7 +12,7 @@ function signin_company() {
                 localStorage.setItem('token', response.data.access_token)
             })
 
-            window.location.href = 'http://127.0.0.1:5500/frontend/company/home.html'
+            window.location.href = '../company/home.html'
             
         } catch(e) {
             error_message = e.message

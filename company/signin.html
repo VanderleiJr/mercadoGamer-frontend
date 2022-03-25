@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt_br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js_scripts/signin.js" defer></script>
-    <title>MG - Área da Empresa</title>
-</head>
-<body>
-    <h2>Login de Empresa</h2>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="js_scripts/signin.js" defer></script>
+        <link rel="stylesheet" href="styles/signin.css">
+        <title>MG - Área da Empresa</title>
+    </head>
+    <body>
+        <div class="pagina">
+            <div class="form">
+                <div class="login">
+                    <div class="cabecalho">
+                        <h3>Login de Empresa</h3>
+                    </div>
+                </div>
 
-    <form action="../public/index.html">
-        <input type="submit" value="Voltar ao início">
-    </form>
-
-    <form id="form_signin_company">
-        <label>CNPJ</label></br>
-        <input type="number" id="cnpj" placeholder="12345678000109" required></br></br>
-        <label>Senha</label></br>
-        <input type="password" id="password" placeholder="Insira sua senha" required></br>
-        <input type="submit" value="Entrar">
-    </form>
-</body>
+                <form id="form_signin_company" class="formulario-login">
+                    <input type="number" id="cnpj" placeholder="CNPJ" required><br><br>
+                    <input type="password" id="password" placeholder="Senha" required><br><br>
+                    <input id="btn" type="submit" value="Entrar">
+                </form>
+                <br>
+                <form action="../public/index.html">
+                    <input id='btn' type="submit" value="Voltar ao início">
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

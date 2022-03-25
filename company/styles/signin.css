@@ -31,12 +31,13 @@
 }
 
 .form #btn {
+    font-family: 'Times New Roman', Times, serif;
     text-transform: uppercase;
     width: 100%;
     padding: 10px;
     font-size: 14px;
     color: #FFF;
-    background-image: linear-gradient(to bottom left, #3aa7a1, #225e5b);
+    background-image: linear-gradient(to bottom left, #3aa786, #17744d);
 }
 
 .container {
@@ -47,7 +48,7 @@
 }
 
 body {
-    background-image: linear-gradient(to bottom right, #42bbb5, #225e5b);
+    background-image: linear-gradient(to bottom right, #42bb89, #225e4a);
     position: relative;
     height: 97vh;
     width: 99vw;
