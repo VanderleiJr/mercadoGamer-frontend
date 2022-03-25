@@ -1,0 +1,49 @@
+.header {
+    background-color: #FFF;
+    height: 45px;
+}
+.pagina {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.pagina .form .login {
+    margin-top: -31px;
+    margin-bottom: 26px;
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    background: #FFFFFF;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+
+.form input {
+    width: 100%;
+    border: 0;
+    font-size: 14px;
+    background: #F2F2F2;
+}
+
+.form button {
+    text-transform: uppercase;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    background-color: #F2F2AA;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+}
+body {
+    background-color: #FFFFFF;
+}
