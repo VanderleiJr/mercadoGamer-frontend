@@ -30,7 +30,7 @@ async function market_code() {
         }
     } catch(e) {
         alert("Este jogo não foi cadastrado no nosso Banco de Dados")
-        window.location.href = 'http://127.0.0.1:5500/frontend/market/market.html'
+        window.location.href = '../market/market.html'
     }
 }
 

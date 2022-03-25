@@ -38,10 +38,6 @@ body {
     flex-wrap: wrap;
 }
 
-/*#botao_editar{
-    flex-direction: row-reverse;
-}*/
-
 header{
     flex: 1;
     background-color: yellowgreen;

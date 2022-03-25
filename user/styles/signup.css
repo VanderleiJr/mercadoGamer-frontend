@@ -8,7 +8,7 @@
     margin: auto;
 }
 
-.pagina .form .editar {
+.pagina .form .cadastro {
     margin-top: -31px;
     margin-bottom: 26px;
 }
@@ -30,12 +30,13 @@
     background: #F2F2F2;
 }
 
-.form button {
+.form #btn {
     text-transform: uppercase;
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     font-size: 14px;
-    background-color: #F2F2AA;
+    color: #FFF;
+    background-image: linear-gradient(to bottom left, #3aa7a1, #225e5b);
 }
 
 .container {
@@ -44,6 +45,10 @@
     max-width: 300px;
     margin: 0 auto;
 }
+
 body {
-    background-color: #FFFFFF;
+    background-image: linear-gradient(to bottom right, #42bbb5, #225e5b);
+    position: relative;
+    height: 97vh;
+    width: 99vw;
 }

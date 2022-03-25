@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js_scripts/make_order.js" defer></script>
+    <link rel="stylesheet" href="styles/make_order.css">
     <title>Finalizar Pedido</title>
 </head>
 <body>
-    <h1>Finalizar Pedido</h1><br>
+    <div class="container">
+        <header>Finalizar Pedido</header><br>
+        <button id="botao_cancelar" type="submit" onclick=window.history.back()>X</button>
+    </div>
 
-    <button type="submit" onclick=window.history.back()>Cancelar</button>
     
-    <form id="order_form_amount">
-        <label>Quantidade de produtos que deseja:</label>
-        <input type="number" id="amount" required>
-        <input type="submit" value="Comprar">
-    </form>
+    <div class="centralizado">
+        <form id="order_form_amount">
+            <label>Quantidade de produtos que deseja:</label>
+            <input type="number" id="amount" required>
+            <input type="submit" value="Comprar">
+        </form>
+    </div>
 </body>
 </html>

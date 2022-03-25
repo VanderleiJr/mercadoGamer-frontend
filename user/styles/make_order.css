@@ -19,19 +19,27 @@ body {
     margin: 0;
 }
 
-#formulario{
+.centralizado {
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    background: #FFFFFF;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+
+#botao_cancelar{
     padding: 1em;
+    padding: 15px;
+    font-size: 14px;
     background-color: beige;
 }
 
-#home_user_orders{
-    width: 100%;
-    padding: 1em;
-    background-color: cyan;
-}
 
 header{
     flex: 1;
     background-color: yellowgreen;
     padding: 1em;
+    text-align: center;
 }
