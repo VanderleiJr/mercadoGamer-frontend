@@ -44,6 +44,10 @@ function logout(){
     window.location.href = '../public/index.html'
 }
 
+function marketplace(){
+    window.location.href = '../market/market.html'
+}
+
 function app(){
     home()
     orders()

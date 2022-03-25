@@ -1,0 +1,44 @@
+header {
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    font-size: 150%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #42bbb5, #225e5b, #0e3a38);
+    position: relative;
+    height: 97vh;
+    width: 99vw;
+}
+
+.pagina {
+    width: 100%;
+    height: 100%;
+}
+
+.container-left {
+    position: relative;
+    width: 25%;
+    height: 20%;
+    margin: 0 5% 5%;
+    padding: 1%;
+    float: left;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+.container-right {
+    width: 25%;
+    height: 20%;
+    margin: 0 5% 5%;
+    padding: 1%;
+    float: right;
+    text-align: center;
+    background-color: aqua;
+}
+
+#marketplace {
+    text-align: center;
+}
