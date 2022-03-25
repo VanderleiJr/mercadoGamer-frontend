@@ -19,17 +19,24 @@ body {
     margin: 0;
 }
 
-#formulario{
+#botoes{
     padding: 1em;
     background-color: beige;
 }
 
 #home_user_orders{
-    width: 100%;
+    width: 80%;
     padding: 1em;
     background-color: cyan;
 }
 
+#dados_usuario{
+    word-break:break-all;
+    width: 20%;
+    padding: 1em;
+    background-color: brown;
+    flex-wrap: wrap;
+}
 
 /*#botao_editar{
     flex-direction: row-reverse;

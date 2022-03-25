@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js_scripts/market.js" defer></script>
+    <link rel="stylesheet" href="styles/marketplace.css">
     <title>MG - Market</title>
 </head>
 <body>
-    <h1>Mercado Gamer - Marketplace</h1><br>
-
-    <button type="submit" onclick=window.history.back()>Voltar</button>
-
-    <div id="market">
-        <h2>Lista de Jogos em estoque neste momento:</h2>
+    <div class="container">
+        <header>Mercado Gamer - Marketplace</header>
+        <div id="botao_voltar">
+            <button type="submit" onclick=window.history.back()>Voltar</button>
+        </div>
     </div>
+
+    <div class="container">
+        <div id="market">
+            <h2>Lista de Jogos em estoque neste momento:</h2>
+        </div>
+    </div>
+
+
 </body>
 </html>

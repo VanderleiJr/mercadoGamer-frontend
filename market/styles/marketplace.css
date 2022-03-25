@@ -19,21 +19,16 @@ body {
     margin: 0;
 }
 
-#formulario{
+#botao_voltar{
     padding: 1em;
     background-color: beige;
 }
 
-#home_user_orders{
+#market{
     width: 100%;
     padding: 1em;
     background-color: cyan;
 }
-
-
-/*#botao_editar{
-    flex-direction: row-reverse;
-}*/
 
 header{
     flex: 1;
