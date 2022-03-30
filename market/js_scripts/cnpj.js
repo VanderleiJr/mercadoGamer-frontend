@@ -32,7 +32,7 @@ async function market_cnpj() {
         }
     } catch(e) {
         alert("Esta empresa não foi cadastrada no nosso Banco de Dados")
-        window.location.href = 'http://127.0.0.1:5500/frontend/market/market.html'
+        window.location.href = '../market/market.html'
     }
 }
 
