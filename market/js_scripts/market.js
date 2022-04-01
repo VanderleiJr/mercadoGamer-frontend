@@ -34,6 +34,8 @@ async function market() {
             // element_buy.href = `../user/make_order.html?cnpj=${data_item.company_cnpj}&code=${data_item.product_code}`
             element_buy.onclick = mostrar_botao_comprar
 
+            document.getElementById('')
+
             element_products.appendChild(element_buy)
             list_products.appendChild(element_products)
             list_products.appendChild(document.createElement('br'))
@@ -57,7 +59,6 @@ function criar_botao_comprar(parentElement, cnpj, codigo) {
     const element_input_submit = document.createElement('input')
     element_input_submit.type = 'submit'
     element_input_submit.value = 'Comprar'
-    element_input_submit.onclick = comprar(cnpj)
 
     element_comprar_hidden.appendChild(element_label)
     element_comprar_hidden.appendChild(element_input_number)
@@ -83,13 +84,17 @@ function mostrar_botao_comprar() {
 }
 
 function comprar_jogos(cnpj, code, quantidade) {
-    let url = "http://127.0.0.1:8000/order/" + cnpj + "/" + code + "/" + quantidade
+    try {
+        let url = "http://127.0.0.1:8000/order/" + cnpj + "/" + code + "/" + quantidade
 
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", url, false)
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, false)
 
-    xhr.onreadystatechange = function () {
-        alert("Compra de " + quantidade + " feita com sucesso, código " + code + ", cnpj " + cnpj)
+        xhr.onreadystatechange = function () {
+            alert("Compra de " + quantidade + " feita com sucesso, código " + code + ", cnpj " + cnpj)
+        }
+    } catch {
+        console.log("some other error")
     }
 }
 
