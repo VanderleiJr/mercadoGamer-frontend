@@ -6,9 +6,11 @@ async function market() {
         home_data.appendChild(document.createTextNode("Não há jogos no Marketplace agora... Que triste"))
     } else {
         const list_products = document.createElement('ul')
+        let i = 0
 
         response.data.forEach(data_item => {
             const element_products = document.createElement('li')
+            try {element_products.index_ = i} catch {console.log("i is undefined while trying to index it")}
             const element_of_element1 = document.createElement('a')
             const element_of_element2 = document.createElement('a')
 
@@ -34,11 +36,10 @@ async function market() {
             // element_buy.href = `../user/make_order.html?cnpj=${data_item.company_cnpj}&code=${data_item.product_code}`
             element_buy.onclick = mostrar_botao_comprar
 
-            document.getElementById('')
-
             element_products.appendChild(element_buy)
             list_products.appendChild(element_products)
             list_products.appendChild(document.createElement('br'))
+            try {i = i + 1} catch {console.log("i is undefined while trying to sum it.")}
         })
         home_data.appendChild(list_products)
     }
@@ -50,6 +51,7 @@ function criar_botao_comprar(parentElement, cnpj, codigo) {
     element_comprar_hidden.id = 'botao_comprar_hidden'
     element_comprar_hidden.cnpj = cnpj
     element_comprar_hidden.codigo_produto = codigo
+    element_comprar_hidden.quantidade = 0
 
     const element_label = document.createElement('label')
     element_label.innerText = 'Quantidade de produtos que deseja:'
@@ -62,6 +64,7 @@ function criar_botao_comprar(parentElement, cnpj, codigo) {
     const element_input_submit = document.createElement('input')
     element_input_submit.type = 'submit'
     element_input_submit.value = 'Comprar'
+    element_input_submit.onclick = atualizarQuantidade
 
     element_comprar_hidden.appendChild(element_label)
     element_comprar_hidden.appendChild(element_input_number)
@@ -86,6 +89,10 @@ function mostrar_botao_comprar() {
     }
 }
 
+function atualizarQuantidade() {
+
+}
+
 function comprar_jogos(cnpj, code, quantidade) {
     try {
         let url = "http://127.0.0.1:8000/order/" + cnpj + "/" + code + "/" + quantidade
@@ -100,6 +107,16 @@ function comprar_jogos(cnpj, code, quantidade) {
         console.log("some other error")
     }
 }
+
+function getIndex(form) {
+    try {return form.parentElement.index_} catch {console.log("Não consegui retornar o index.\nform: " + form)}
+}
+
+/*
+ * Onclick with args:
+ * onclick = function () { another_function(args) }
+ *
+ */
 
 function app() {
     market()
