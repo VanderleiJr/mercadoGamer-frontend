@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js_scripts/home.js" defer></script>
-    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/home.css">
     <title>MG - Home</title>
 </head>
 <body>
@@ -43,14 +43,20 @@
     </div>
     <footer>
         <div id="funcoes_admin">
-            <h4>Funções Admin</h4>
+            <h4>Funções Administrador</h4>
         </div>
+
+        <form id="form_new_stock">
+            <h5>Cadastrar produto no Estoque</h5>
+            <input type="number" id="upc_ean" placeholder="Código do Produto" required>
+            <input type="number" id="amount" placeholder="Quantidade" required>
+            <input type="submit" id="btn_stock" value="Estocar">
+        </form>
+
         <div id="botoes" class="buttons-container">
-            <form action="products/stock.html">
-                <input type="submit" value="Registrar produto(s) no Estoque">
-            </form>
+            <h5>Cadastrar produto no Banco de Dados</h5>
             <form action="products/new.html">
-                <input type="submit" value="Cadastrar Tipo de Produto">
+                <input type="submit" value="Acessar Banco de Dados">
             </form>
         </div>
     </footer>

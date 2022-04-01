@@ -13,9 +13,8 @@
 }
 
 .buttons-container {
-    width: 100%;
-    display: inline-flex;
-    justify-content: space-evenly;
+    width: 80%;
+    padding: 0% 0% 0% 2%;
 }
 
 body {
@@ -53,7 +52,7 @@ body {
 }
 
 #funcoes_admin{
-    padding: 8px;
+    padding: 0% 0% 0% 1%;
 }
 
 /*#botao_editar{
@@ -70,4 +69,8 @@ header{
 footer{
     flex: 1;
     background-color: yellowgreen;
+}
+
+#form_new_stock{
+    padding: 0% 0% 0% 2%;
 }
