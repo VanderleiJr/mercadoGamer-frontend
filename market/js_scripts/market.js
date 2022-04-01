@@ -46,7 +46,10 @@ async function market() {
 
 function criar_botao_comprar(parentElement, cnpj, codigo) {
     element_comprar_hidden = document.createElement('form')
+    element_comprar_hidden.name = 'form_compra'
     element_comprar_hidden.id = 'botao_comprar_hidden'
+    element_comprar_hidden.cnpj = cnpj
+    element_comprar_hidden.codigo_produto = codigo
 
     const element_label = document.createElement('label')
     element_label.innerText = 'Quantidade de produtos que deseja:'
