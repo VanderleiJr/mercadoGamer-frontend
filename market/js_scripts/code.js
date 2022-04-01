@@ -1,5 +1,5 @@
 async function market_code() {
-    const home_data = document.getElementById('marketplace')
+    const home_data = document.getElementById('empresas_disp')
     
     code = window.location.search.split('=')[1]
 
