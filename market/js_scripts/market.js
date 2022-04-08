@@ -6,7 +6,12 @@ try {
 
 async function market() {
     const home_data = document.getElementById('market')
-    const response = await axios.get('http://127.0.0.1:8000/market/')
+    try {
+        const response = getProdutos()
+    } catch (error) {
+        console.error(error)
+    }
+    // const response = await axios.get('http://127.0.0.1:8000/market/')
 
     if (response.status == 204) {
         home_data.appendChild(document.createTextNode("Não há jogos no Marketplace agora... Que triste"))
@@ -36,11 +41,11 @@ async function market() {
 
             criar_botao_comprar(element_products, `${data_item.company_cnpj}`, `${data_item.product_code}`, i)
 
-            const element_buy = document.createElement('input')
-            element_buy.type = 'button'
-            element_buy.value = 'Quero Comprar'
+            const element_buy = document.createElement('button')
+            element_buy.innerText = 'Quero Comprar'
+            element_buy._index = i
             // element_buy.href = `../user/make_order.html?cnpj=${data_item.company_cnpj}&code=${data_item.product_code}`
-            element_buy.onclick = mostrar_botao_comprar
+            element_buy.onclick = mostrar_botao_comprar.bind(element_buy, element_buy) 
 
             element_products.appendChild(element_buy)
             list_products.appendChild(element_products)
@@ -62,8 +67,8 @@ function criar_botao_comprar(parentElement, cnpj, codigo, _index) {
     element_comprar_hidden.quantidade = 0
     */
 
-    element_comprar_hidden = document.createElement('div')
-    element_comprar_hidden.id = 'botao_comprar_hidden'
+    const element_comprar_hidden = document.createElement('div')
+    element_comprar_hidden.id = 'botao_comprar_hidden_class'
 
     const element_label = document.createElement('label')
     element_label.innerText = 'Quantidade de produtos que deseja:'
@@ -88,33 +93,74 @@ function criar_botao_comprar(parentElement, cnpj, codigo, _index) {
     parentElement.appendChild(element_comprar_hidden)
 }
 
-function mostrar_botao_comprar() {
-    console.log("Botao hidden na função de mostrar: " + document.getElementById("botao_comprar_hidden"))
-
+function mostrar_botao_comprar(btn) {
+    div = btn.parentElement.children[4]
     try {
-        if (document.getElementById("botao_comprar_hidden").style.display == 'none') {
-            document.getElementById("botao_comprar_hidden").style.display = 'block'
+        if (div.style.display == 'none') {
+            div.style.display = 'block'
+        } else if (div.style.display == 'block'){
+            div.style.display = 'none'
         } else {
-            document.getElementById("botao_comprar_hidden").style.display = 'none'
+            div.style.display = 'block'
         }
     } catch {
-        console.log("some error")
+        console.log("Erro ao mudar visibilidade de botão")
     }
 }
 
-function atualizarQuantidade() {
+function mostrar_botao_comprar_indice(i) {
+    console.log("Tentando mostrar botao comprar com indice: " + i)
+    btn = document.getElementsByName('botao_comprar_hidden')[i]
 
+    try {
+        if (btn.style.display == 'none') {
+            btn.style.display = 'block'
+        } else {
+            btn.style.display = 'none'
+        }
+    } catch {
+        console.log("Erro ao mudar visibilidade de botão")
+    }
+}
+
+function getProdutos() {
+    let url = 'http://127.0.0.1:8000/market/'
+    try {
+        let xhr = new XMLHttpRequest()
+        xhr.open("GET", url, true)
+
+        xhr.send()
+        
+        xhr.addEventListener("load", function () {
+            return this.responseText;
+        });
+
+    } catch (error) { console.error(error)}
 }
 
 function comprar_jogos(cnpj, code, indice) {
     let quantidade = quantidadeIndex(indice)
     console.log("Comprar jogos sendo chamado com, CNPJ: "+cnpj+", codigo:"+code+", quantidade:"+quantidade)
-    let url = "http://127.0.0.1:8000/order/" + cnpj + "/" + code + "/" + quantidade
 
-    let response_comprar = axios.get(url)
-        .then(function (response) {
-            console.log("RESPONSE:" + response)
-        })
+    try {
+        let server = "http://127.0.0.1:8000"
+        let path = "/order/" + cnpj + "/" + code + "/" + quantidade
+        let url = server + path
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true)
+        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+
+        xhr.addEventListener("load", function () {
+            console.log("Compra de " + quantidade + " feita com sucesso")
+            console.log(this.responseText);
+        });
+
+        xhr.send()
+
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 function quantidadeIndex(indice){
