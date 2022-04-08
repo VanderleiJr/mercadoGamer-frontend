@@ -148,7 +148,11 @@ function comprar_jogos(cnpj, code, indice) {
         xhr.addEventListener("load", function () {
             console.log("Compra de " + quantidade + " feita com sucesso")
             console.log(this.responseText);
-            atualizarItens(indice, quantidade)
+            if (this.readyState == 4 && this.status == 201) {
+                atualizarItens(indice, quantidade)
+            } else if (this.status == 404) {
+                alert(`Não foi possível comprar ${quantidade} do item ${code}`)
+            }
         });
 
         xhr.send()
