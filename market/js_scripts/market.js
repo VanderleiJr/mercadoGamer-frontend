@@ -6,7 +6,7 @@ try {
 
 async function market() {
     const home_data = document.getElementById('market')
-	/*
+	/* removing axios
     try {
         const response = getProdutos()
     } catch (error) {
@@ -136,6 +136,11 @@ function comprar_jogos(cnpj, code, indice) {
     let quantidade = quantidadeIndex(indice)
     console.log("Comprar jogos sendo chamado com, CNPJ: "+cnpj+", codigo:"+code+", quantidade:"+quantidade)
 
+    if (quantidade < 0) {
+        alert("Quantidade inválida!")
+        return null
+    }
+
     try {
         let server = "http://127.0.0.1:8000"
         let path = "/order/" + cnpj + "/" + code + "/" + quantidade
@@ -182,12 +187,6 @@ function atualizarItens(indice, quantidadeComprada) {
     console.log("Novo texto: " + textoEmLista.join([' ']))
 
 }
-
-/*
- * Onclick with args:
- * onclick = function () { another_function(args) }
- *
- */
 
 function app() {
     market()
