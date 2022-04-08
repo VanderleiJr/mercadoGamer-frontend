@@ -6,12 +6,14 @@ try {
 
 async function market() {
     const home_data = document.getElementById('market')
+	/*
     try {
         const response = getProdutos()
     } catch (error) {
         console.error(error)
     }
-    // const response = await axios.get('http://127.0.0.1:8000/market/')
+    */
+    const response = await axios.get('http://127.0.0.1:8000/market/')
 
     if (response.status == 204) {
         home_data.appendChild(document.createTextNode("Não há jogos no Marketplace agora... Que triste"))
@@ -58,14 +60,6 @@ async function market() {
 
 function criar_botao_comprar(parentElement, cnpj, codigo, _index) {
     console.log("Criar botao comprar: |cnpj|codigo|:" + cnpj +"|"+codigo)
-    /*
-    element_comprar_hidden = document.createElement('form')
-    element_comprar_hidden.name = 'form_compra'
-    element_comprar_hidden.id = 'botao_comprar_hidden'
-    element_comprar_hidden.cnpj = cnpj
-    element_comprar_hidden.codigo_produto = codigo
-    element_comprar_hidden.quantidade = 0
-    */
 
     const element_comprar_hidden = document.createElement('div')
     element_comprar_hidden.id = 'botao_comprar_hidden_class'
@@ -154,6 +148,7 @@ function comprar_jogos(cnpj, code, indice) {
         xhr.addEventListener("load", function () {
             console.log("Compra de " + quantidade + " feita com sucesso")
             console.log(this.responseText);
+            atualizarItens(indice, quantidade)
         });
 
         xhr.send()
@@ -169,6 +164,19 @@ function quantidadeIndex(indice){
 
 function getIndex(form) {
     try {return form.parentElement.index_} catch {console.log("Não consegui retornar o index.\nform: " + form)}
+}
+
+function atualizarItens(indice, quantidadeComprada) {
+    a_tag = document.getElementsByTagName('li')[indice].children[2]
+
+    textoEmLista = a_tag.text.split(' ')
+    qtdAtual = textoEmLista[7]
+    novaQtd = String(qtdAtual - quantidadeComprada)
+    textoEmLista[7] = novaQtd
+
+    a_tag.text = textoEmLista.join([' '])
+    console.log("Novo texto: " + textoEmLista.join([' ']))
+
 }
 
 /*
