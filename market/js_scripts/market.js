@@ -1,3 +1,9 @@
+try { 
+    window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+} catch {
+    console.log("No authorization")
+}
+
 async function market() {
     const home_data = document.getElementById('market')
     const response = await axios.get('http://127.0.0.1:8000/market/')
@@ -28,7 +34,7 @@ async function market() {
             element_products.appendChild(element_of_element2)
             element_products.appendChild(document.createElement('br'))
 
-            criar_botao_comprar(element_products, `${data_item.company_cnpj}`, `${data_item.product_code}`)
+            criar_botao_comprar(element_products, `${data_item.company_cnpj}`, `${data_item.product_code}`, i)
 
             const element_buy = document.createElement('input')
             element_buy.type = 'button'
@@ -45,13 +51,19 @@ async function market() {
     }
 }
 
-function criar_botao_comprar(parentElement, cnpj, codigo) {
+function criar_botao_comprar(parentElement, cnpj, codigo, _index) {
+    console.log("Criar botao comprar: |cnpj|codigo|:" + cnpj +"|"+codigo)
+    /*
     element_comprar_hidden = document.createElement('form')
     element_comprar_hidden.name = 'form_compra'
     element_comprar_hidden.id = 'botao_comprar_hidden'
     element_comprar_hidden.cnpj = cnpj
     element_comprar_hidden.codigo_produto = codigo
     element_comprar_hidden.quantidade = 0
+    */
+
+    element_comprar_hidden = document.createElement('div')
+    element_comprar_hidden.id = 'botao_comprar_hidden'
 
     const element_label = document.createElement('label')
     element_label.innerText = 'Quantidade de produtos que deseja:'
@@ -59,12 +71,13 @@ function criar_botao_comprar(parentElement, cnpj, codigo) {
     const element_input_number = document.createElement('input')
     element_input_number.type = 'number'
     element_input_number.id = 'amount'
+    element_input_number.name = 'item_amount'
     element_input_number.required = true
 
-    const element_input_submit = document.createElement('input')
-    element_input_submit.type = 'submit'
-    element_input_submit.value = 'Comprar'
-    element_input_submit.onclick = atualizarQuantidade
+    const element_input_submit = document.createElement('button')
+    // element_input_submit.type = 'submit'
+    element_input_submit.innerText = 'Comprar'
+    element_input_submit.onclick = function () { comprar_jogos(cnpj, codigo, _index) }
 
     element_comprar_hidden.appendChild(element_label)
     element_comprar_hidden.appendChild(element_input_number)
@@ -93,19 +106,19 @@ function atualizarQuantidade() {
 
 }
 
-function comprar_jogos(cnpj, code, quantidade) {
-    try {
-        let url = "http://127.0.0.1:8000/order/" + cnpj + "/" + code + "/" + quantidade
+function comprar_jogos(cnpj, code, indice) {
+    let quantidade = quantidadeIndex(indice)
+    console.log("Comprar jogos sendo chamado com, CNPJ: "+cnpj+", codigo:"+code+", quantidade:"+quantidade)
+    let url = "http://127.0.0.1:8000/order/" + cnpj + "/" + code + "/" + quantidade
 
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", url, false)
+    let response_comprar = axios.get(url)
+        .then(function (response) {
+            console.log("RESPONSE:" + response)
+        })
+}
 
-        xhr.onreadystatechange = function () {
-            alert("Compra de " + quantidade + " feita com sucesso, código " + code + ", cnpj " + cnpj)
-        }
-    } catch {
-        console.log("some other error")
-    }
+function quantidadeIndex(indice){
+    return document.getElementsByName("item_amount")[indice].value
 }
 
 function getIndex(form) {
