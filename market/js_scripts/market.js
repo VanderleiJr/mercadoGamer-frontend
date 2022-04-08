@@ -6,7 +6,12 @@ try {
 
 async function market() {
     const home_data = document.getElementById('market')
-    const response = await axios.get('http://127.0.0.1:8000/market/')
+    try {
+        const response = getProdutos()
+    } catch (error) {
+        console.error(error)
+    }
+    // const response = await axios.get('http://127.0.0.1:8000/market/')
 
     if (response.status == 204) {
         home_data.appendChild(document.createTextNode("Não há jogos no Marketplace agora... Que triste"))
@@ -118,13 +123,19 @@ function mostrar_botao_comprar_indice(i) {
     }
 }
 
-async function atualizarQuantidade() {
-  try {
-    const response = await axios.get('/user?ID=12345');
-    console.log(response);
-  } catch (error) {
-    console.error(error);
-  }
+function getProdutos() {
+    let url = 'http://127.0.0.1:8000/market/'
+    try {
+        let xhr = new XMLHttpRequest()
+        xhr.open("GET", url, true)
+
+        xhr.send()
+        
+        xhr.addEventListener("load", function () {
+            return this.responseText;
+        });
+
+    } catch (error) { console.error(error)}
 }
 
 function comprar_jogos(cnpj, code, indice) {
@@ -136,16 +147,14 @@ function comprar_jogos(cnpj, code, indice) {
         let path = "/order/" + cnpj + "/" + code + "/" + quantidade
         let url = server + path
 
-        // const response = axios.get(server + path)
-        // console.log(response)
-
         let xhr = new XMLHttpRequest();
         xhr.open("GET", url, true)
         xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
 
-        xhr.onreadystatechange = function () {
-            alert("Compra de " + quantidade + " feita com sucesso")
-        }
+        xhr.addEventListener("load", function () {
+            console.log("Compra de " + quantidade + " feita com sucesso")
+            console.log(this.responseText);
+        });
 
         xhr.send()
 
