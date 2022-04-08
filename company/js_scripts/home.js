@@ -132,6 +132,10 @@ function new_product_stock() {
     // Retiro as informações e salvo em variáveis
     let upc_ean = form_new_stock.upc_ean.value
     let amount = form_new_stock.amount.value
+    if (amount < 0) {
+        alert("Quantidade negativa!")
+        return null
+    }
     const urlRequest = "http://127.0.0.1:8000/company/products"
 
     // Abro a requisição como POST
